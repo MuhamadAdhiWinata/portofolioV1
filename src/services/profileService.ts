@@ -14,5 +14,6 @@ export const getProfiles = async (): Promise<Profile[]> => {
     email: String(item.email),
     phone: String(item.phone),
     linktree: String(item.linktree),
+    avatar: String(item.avatar),
   }));
 };

@@ -6,6 +6,7 @@ export interface Profile {
   email: string;
   phone: string;
   linktree: string;
+  avatar?: string;
 }
 
 export interface Project {
