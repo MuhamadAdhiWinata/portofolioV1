@@ -169,6 +169,9 @@ onMounted(async () => {
       getProfiles(), getProjects(), getExperiences(), getEducation(), getCertifications(),
     ]);
     profile.value        = p[0] ?? null;
+    if (profile.value) {
+      document.title = `${profile.value.name} - Portofolio`;
+    }
     projects.value       = proj;
     experiences.value    = exp;
     education.value      = edu;
