@@ -1,45 +1,49 @@
 <template>
-  <section v-if="projects.length" id="projects" class="space-y-8 sm:space-y-10">
+  <!--
+    ProjectsSection: tidak ada margin/padding luar.
+    Parent (HomePage) yang mengatur jarak dari section lain.
+  -->
+  <section v-if="projects.length" id="projects">
     <!-- Heading -->
-    <div class="space-y-4 text-center">
-      <h2 class="font-display bg-gradient-to-r from-white to-purple-300 bg-clip-text text-4xl font-black text-transparent sm:text-5xl lg:text-6xl">
-        Featured Projects
-      </h2>
-      <div class="section-divider mx-auto" />
+    <div class="mb-8 flex items-end justify-between gap-4 border-b border-[#1a1a1a] pb-6">
+      <div>
+        <p class="mb-2 font-mono text-xs uppercase tracking-[0.3em] text-[#c8f135]">Work</p>
+        <h2 class="font-display text-4xl font-black text-[#f0f0f0] lg:text-5xl">Projects</h2>
+      </div>
+      <span class="font-mono text-xs text-[#444]">{{ String(projects.length).padStart(2, '0') }} items</span>
     </div>
 
-    <!-- Cards Grid -->
-    <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+    <!-- Cards -->
+    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
       <button
-        v-for="project in projects"
+        v-for="(project, i) in projects"
         :key="project.id"
         type="button"
-        class="group cursor-pointer rounded-2xl border border-white/20 bg-white/10 p-5 text-left backdrop-blur-xl transition-all duration-500 hover:scale-[1.03] hover:bg-white/20 hover:shadow-2xl hover:shadow-purple-500/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 sm:p-6"
+        class="group relative overflow-hidden rounded-2xl border border-[#1a1a1a] bg-[#111] p-6 text-left transition-all duration-300 hover:border-[#c8f135]/50 hover:bg-[#141414] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c8f135]"
         @click="$emit('open-project', project)"
       >
-        <!-- Thumbnail -->
-        <div class="relative mb-5 flex h-44 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-purple-600/20 to-pink-600/20 sm:h-48">
-          <span class="text-5xl opacity-50 transition-transform duration-500 group-hover:scale-110">🚀</span>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <div class="mb-6 flex items-start justify-between">
+          <span class="font-mono text-xs text-[#333]">{{ String(i + 1).padStart(2, '0') }}</span>
+          <svg class="size-4 text-[#333] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#c8f135]"
+               fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"/>
+          </svg>
         </div>
 
-        <!-- Meta -->
-        <h3 class="mb-2 text-lg font-bold text-white transition-colors group-hover:text-purple-300 sm:text-xl">
+        <div class="mb-5 flex size-12 items-center justify-center rounded-xl border border-[#2a2a2a] bg-[#0a0a0a] text-2xl transition-colors duration-300 group-hover:border-[#c8f135]/30">
+          {{ projectEmoji(i) }}
+        </div>
+
+        <h3 class="mb-2 font-display text-lg font-bold text-[#f0f0f0] transition-colors group-hover:text-[#c8f135]">
           {{ project.title }}
         </h3>
-        <p class="line-clamp-2 text-sm leading-relaxed text-slate-300">
+        <p class="mb-5 line-clamp-2 font-display text-sm leading-relaxed text-[#555]">
           {{ project.description }}
         </p>
+        <span class="font-mono text-xs text-[#333]">{{ project.year }}</span>
 
-        <!-- Year badge -->
-        <div class="mt-4 flex items-center justify-between">
-          <span class="inline-block rounded-full border border-purple-500/30 bg-purple-500/20 px-3 py-1 text-xs font-semibold text-purple-300">
-            {{ project.year }}
-          </span>
-          <span class="text-xs font-medium text-purple-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            View details →
-          </span>
-        </div>
+        <!-- Hover accent line -->
+        <div class="absolute bottom-0 left-0 h-px w-0 bg-[#c8f135] transition-all duration-300 group-hover:w-full" />
       </button>
     </div>
   </section>
@@ -50,4 +54,7 @@ import type { Project } from '../types';
 
 defineProps<{ projects: Project[] }>();
 defineEmits<{ (e: 'open-project', project: Project): void }>();
+
+const emojis = ['⚡', '🛠', '📡', '🔐', '🧬', '🎯', '🌐', '🚀'];
+const projectEmoji = (i: number) => emojis[i % emojis.length];
 </script>

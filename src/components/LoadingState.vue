@@ -1,27 +1,22 @@
 <template>
-  <div class="flex min-h-[60vh] items-center justify-center" role="status" aria-label="Loading content">
+  <div class="flex min-h-screen w-full items-center justify-center" role="status" aria-label="Loading">
     <div class="space-y-6 text-center">
-
-      <!-- Spinner rings -->
-      <div class="relative mx-auto size-20 sm:size-24">
-        <div class="absolute inset-0 rounded-full border-4 border-purple-500/30" />
-        <div class="absolute inset-0 animate-spin rounded-full border-4 border-transparent border-t-purple-500" />
-        <div class="animate-spin-slow absolute inset-3 rounded-full border-4 border-transparent border-t-pink-500" />
-        <div class="animate-spin-reverse absolute inset-6 rounded-full border-4 border-transparent border-t-purple-300" />
+      <!-- Spinner -->
+      <div class="relative mx-auto size-16">
+        <div class="absolute inset-0 rounded-full border border-[#1a1a1a]" />
+        <div class="animate-spin-slow absolute inset-0 rounded-full border border-transparent border-t-[#c8f135]" />
+        <div class="animate-spin-rev absolute inset-3 rounded-full border border-transparent border-t-[#555]" />
       </div>
 
       <!-- Text -->
-      <div class="space-y-3">
-        <p class="animate-pulse text-xl font-bold text-white sm:text-2xl">
-          Loading Amazing Content
-        </p>
-        <div class="flex items-center justify-center gap-1.5">
-          <span class="size-2 animate-bounce rounded-full bg-purple-500" style="animation-delay: 0s" />
-          <span class="size-2 animate-bounce rounded-full bg-pink-500" style="animation-delay: 0.2s" />
-          <span class="size-2 animate-bounce rounded-full bg-purple-400" style="animation-delay: 0.4s" />
+      <div class="space-y-2">
+        <p class="font-mono text-sm text-[#555]">Loading portfolio</p>
+        <div class="flex items-center justify-center gap-1">
+          <span class="size-1 animate-bounce rounded-full bg-[#c8f135]" style="animation-delay: 0s" />
+          <span class="size-1 animate-bounce rounded-full bg-[#c8f135]" style="animation-delay: 0.15s" />
+          <span class="size-1 animate-bounce rounded-full bg-[#c8f135]" style="animation-delay: 0.3s" />
         </div>
       </div>
-
     </div>
   </div>
 </template>
