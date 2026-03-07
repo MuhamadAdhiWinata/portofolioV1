@@ -81,26 +81,22 @@
         -->
         <div class="px-6 lg:px-12">
           <div class="space-y-28 py-24 lg:space-y-32">
-
-            <SkillsSection />
+            
+            <SkillsSection class="pb-12"/>
 
             <ProjectsSection
               :projects="projects"
               @open-project="openProject"
-            />
+            class="pb-12"/>
 
-            <ExperiencesSection :experiences="experiences" />
+            <ExperiencesSection :experiences="experiences" class="pb-12"/>
 
-            <!--
-              Education & Certifications: grid 2 kolom di desktop.
-              Jarak dari section sebelumnya diatur space-y di parent.
-            -->
-            <div class="grid gap-16 lg:grid-cols-2">
+            <div class="grid gap-16 lg:grid-cols-2 pb-12">
               <EducationSection :education="education" />
               <CertificationsSection :certifications="certifications" />
             </div>
 
-            <ContactSection :profile="profile" />
+            <ContactSection :profile="profile" class="pb-12"/>
 
           </div>
         </div>

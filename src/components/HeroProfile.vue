@@ -11,7 +11,7 @@
 
     <!-- Content: semua dalam flow normal, tidak ada absolute pada elemen konten -->
     <div class="relative w-full px-6 pb-0 pt-28 lg:px-16 lg:pt-36">
-      <div class="flex flex-col items-center gap-5 text-center">
+      <div class="flex flex-col items-center gap-5 text-center pb-12">
 
         <!-- 1. Avatar — flow normal -->
         <div class="size-36 overflow-hidden rounded-full border-2 border-[#c8f135]/50 sm:size-44">
@@ -19,7 +19,7 @@
             v-if="profile.avatar"
             :src="profile.avatar"
             :alt="profile.name"
-            class="size-full object-cover"
+            class="size-full object-cover object-[center_20%]"
             loading="eager"
           />
           <div v-else class="flex size-full items-center justify-center bg-[#111] font-display text-5xl font-black text-[#c8f135]">

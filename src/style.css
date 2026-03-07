@@ -162,8 +162,11 @@ body {
 }
 
 /* ============================================================
-   MODAL TRANSITIONS — Vue <Transition name="modal">
+   SCROLL OFFSET — kompensasi fixed navbar (~72px) + sedikit breathing room
    ============================================================ */
+section[id] {
+  scroll-margin-top: 5rem;
+}
 .modal-enter-active { transition: opacity 0.25s ease; }
 .modal-leave-active { transition: opacity 0.2s ease; }
 .modal-enter-from,
