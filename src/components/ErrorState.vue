@@ -18,7 +18,7 @@
       <button
         type="button"
         class="group inline-flex items-center gap-2 rounded-full border border-[#2a2a2a] px-6 py-3 font-mono text-sm text-[#888] transition-all hover:border-[#c8f135] hover:text-[#c8f135]"
-        @click="() => window.location.reload()"
+        @click="reload"
       >
         <svg class="size-4 transition-transform group-hover:rotate-180 duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
@@ -31,4 +31,5 @@
 
 <script setup lang="ts">
 defineProps<{ message: string }>();
+const reload = () => location.reload();
 </script>
