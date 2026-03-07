@@ -20,7 +20,7 @@
 
       <div class="space-y-4">
         <article
-          v-for="(exp, i) in experiences"
+          v-for="(exp) in experiences"
           :key="exp.id"
           class="group relative pl-8 sm:pl-16"
         >
